@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpson</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fondamento&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;500&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: white;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .newsletter {
+            background-color: #f6f6f6;
+            border: 1px solid black;
+            padding: 10px;
+            width: 310px;
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid black;
+        }
+
+        .name p {
+            font-family: 'Fondamento', cursive;
+            font-size: 35px;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+
+            border-bottom: 1px solid black;
+        }
+
+        .info p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+            margin: 0;
+        }
+
+        .title h1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+            letter-spacing: 2px;
+            margin: 4px 0 0;
+            text-transform: uppercase;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .content .left-side {
+            margin-right: 10px;
+            width: 50%;
+        }
+
+        .content .left-side h2 {
+            display: flex;
+            flex-direction: column;
+
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 4px 0 0;
+            padding: 10px;
+        }
+
+        .content .left-side div {
+            display: flex;
+        }
+
+        .content .left-side div p:first-child {
+            margin-right: 10px;
+        }
+
+        .content .left-side div p {
+            font-size: 6px;
+        }
+
+        .content .right-side {
+            width: 50%;
+        }
+
+        .content .right-side img {
+            transform: rotate(-1deg);
+            width: 100%;
+            
+        }
+
+        .content .right-side p {
+            font-size: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="newsletter">
+        <section class="name">
+            <p>Springfield Shopper</p>
+        </section>
+
+        <section class="info">
+            <p>DAILY NEWS</p>
+            <p>15¢</p>
+        </section>
+
+        <section class="title">
+            <h1>
+                <span>Homero Simpson</span>
+                <span>Is Crazy With The Beer</span>
+            </h1>
+        </section>
+
+        <section class="content">
+            <article class="left-side">
+                <h2>
+                    <span>KevinV7</span>
+                    <span>CSS Skills!</span>
+                </h2>
+                <div>
+                    <p>CSS (Cascading Style Sheets) es fundamental en las páginas web porque:
+
+                        Separa el contenido del diseño: Permite mantener el HTML limpio y enfocado en la estructura,
+                        mientras que CSS se encarga de los estilos visuales.Mejora la apariencia: Define colores, tipografías, márgenes, animaciones, y más, haciendo que
+                        las páginas sean atractivas y profesionales.</p>
+                    <p> Optimiza la experiencia del usuario: Facilita la navegación y la lectura al organizar
+                        visualmente la información de forma clara.
+
+                       </p>
+                </div>
+            </article>
+
+            <article class="right-side">
+            <a href="https://ibb.co/60KmcVmr"><img src="https://i.ibb.co/ZzQVRtVG/796305e6-f723-4c8f-9128-1717002d4d44.png" alt="796305e6-f723-4c8f-9128-1717002d4d44" border="0"></a>
+                <p>En resumen, CSS es clave para que una página web no solo funcione, sino que también luzca bien y se adapte a las necesidades del usuario.
+                </p>
+            </article>
+        </section>
+    </div>
+
+</body>
+
+</html>
