@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simpson</title>
+    <title>Springfield Shopper</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fondamento&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fondamento&family=Roboto+Condensed:wght@300;400&family=Roboto:wght@100;400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
 
-            background-color: white;
-            height: 100vh;
+            background-color: #e5e2d8;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
         }
 
         .newsletter {
             background-color: #f6f6f6;
             border: 1px solid black;
-            padding: 10px;
-            width: 310px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            width: 100%;
+            max-width: 480px;
         }
 
         .name {
@@ -34,7 +42,7 @@
 
         .name p {
             font-family: 'Fondamento', cursive;
-            font-size: 35px;
+            font-size: clamp(28px, 8vw, 40px);
             margin: 0;
             padding-bottom: 10px;
         }
@@ -49,7 +57,7 @@
         .info p {
             font-family: 'Roboto', sans-serif;
             font-weight: 100;
-            margin: 0;
+            margin: 4px 0;
         }
 
         .title h1 {
@@ -58,19 +66,21 @@
             align-items: center;
 
             font-family: 'Roboto', sans-serif;
-            font-size: 35px;
+            font-size: clamp(22px, 6vw, 35px);
             letter-spacing: 2px;
             margin: 4px 0 0;
             text-transform: uppercase;
+            text-align: center;
         }
 
         .content {
             display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .content .left-side {
-            margin-right: 10px;
-            width: 50%;
+            flex: 1 1 220px;
         }
 
         .content .left-side h2 {
@@ -84,36 +94,42 @@
             padding: 10px;
         }
 
-        .content .left-side div {
-            display: flex;
-        }
-
-        .content .left-side div p:first-child {
-            margin-right: 10px;
-        }
-
         .content .left-side div p {
-            font-size: 6px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0 0 8px;
         }
 
         .content .right-side {
-            width: 50%;
+            flex: 1 1 220px;
         }
 
         .content .right-side img {
             transform: rotate(-1deg);
             width: 100%;
-            
+            border: 1px solid black;
         }
 
         .content .right-side p {
-            font-size: 6px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        footer {
+            border-top: 1px solid black;
+            margin-top: 8px;
+            padding-top: 6px;
+            font-size: 10px;
+            text-align: center;
+            color: #444;
         }
     </style>
 </head>
 
 <body>
-
 
     <div class="newsletter">
         <section class="name">
@@ -128,35 +144,45 @@
         <section class="title">
             <h1>
                 <span>Homero Simpson</span>
-                <span>Is Crazy With The Beer</span>
+                <span>Se Vuelve Loco Por Una Cerveza</span>
             </h1>
         </section>
 
         <section class="content">
             <article class="left-side">
                 <h2>
-                    <span>KevinV7</span>
-                    <span>CSS Skills!</span>
+                    <span>Reportaje especial</span>
+                    <span>El desastre de la planta nuclear</span>
                 </h2>
                 <div>
-                    <p>CSS (Cascading Style Sheets) es fundamental en las páginas web porque:
-
-                        Separa el contenido del diseño: Permite mantener el HTML limpio y enfocado en la estructura,
-                        mientras que CSS se encarga de los estilos visuales.Mejora la apariencia: Define colores, tipografías, márgenes, animaciones, y más, haciendo que
-                        las páginas sean atractivas y profesionales.</p>
-                    <p> Optimiza la experiencia del usuario: Facilita la navegación y la lectura al organizar
-                        visualmente la información de forma clara.
-
-                       </p>
+                    <p>
+                        Vecinos de Springfield reportaron ayer que Homero J. Simpson, empleado del Sector 7-G
+                        de la Planta Nuclear, abandonó su puesto por tercera vez esta semana tras escuchar
+                        el silbato de la camioneta de Duff Beer.
+                    </p>
+                    <p>
+                        "Solo fueron cinco minutos... o tal vez cuatro horas", declaró Homero entre bocado
+                        y bocado de una dona rosada. El señor Burns exigió una investigación inmediata, mientras
+                        Marge Simpson pidió calma en el hogar familiar de la calle Evergreen Terrace 742.
+                    </p>
                 </div>
             </article>
 
             <article class="right-side">
-            <a href="https://ibb.co/60KmcVmr"><img src="https://i.ibb.co/ZzQVRtVG/796305e6-f723-4c8f-9128-1717002d4d44.png" alt="796305e6-f723-4c8f-9128-1717002d4d44" border="0"></a>
-                <p>En resumen, CSS es clave para que una página web no solo funcione, sino que también luzca bien y se adapte a las necesidades del usuario.
+                <a href="https://ibb.co/60KmcVmr" target="_blank" rel="noopener noreferrer">
+                    <img src="https://i.ibb.co/ZzQVRtVG/796305e6-f723-4c8f-9128-1717002d4d44.png"
+                        alt="Ilustración de Homero Simpson tomando cerveza">
+                </a>
+                <p>
+                    Testigos aseguran haber visto a Homero correr gritando "¡Woohoo!" rumbo a Moe's Tavern
+                    justo después de que sonara la alarma de fin de turno.
                 </p>
             </article>
         </section>
+
+        <footer>
+            Diseño y maquetación por KevinV7 — práctica de HTML &amp; CSS (flexbox, tipografía, diseño responsive)
+        </footer>
     </div>
 
 </body>
