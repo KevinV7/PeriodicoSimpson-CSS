@@ -170,6 +170,41 @@
             text-align: center;
             color: #0071bc;
         }
+
+        .refresh-btn {
+            display: block;
+            margin: 10px auto 0;
+            background-color: #ffd90f;
+            border: 2px solid #1a1a1a;
+            border-radius: 4px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+
+        .refresh-btn:hover {
+            background-color: #ed1c24;
+            color: #fffaf0;
+            transform: translateY(-2px);
+        }
+
+        .refresh-btn:active {
+            transform: translateY(0);
+        }
+
+        .content,
+        .title h1 span {
+            transition: opacity 0.25s ease;
+        }
+
+        .content.is-swapping,
+        .title h1.is-swapping span {
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -186,19 +221,19 @@
         </section>
 
         <section class="title">
-            <h1>
-                <span>Homero Simpson</span>
-                <span>Se Vuelve Loco Por Una Cerveza</span>
+            <h1 id="headline">
+                <span id="headline-name">Homero Simpson</span>
+                <span id="headline-sub">Se Vuelve Loco Por Una Cerveza</span>
             </h1>
         </section>
 
-        <section class="content">
+        <section class="content" id="content">
             <article class="left-side">
                 <h2>
-                    <span>Reportaje especial</span>
-                    <span>El desastre de la planta nuclear</span>
+                    <span id="story-kicker">Reportaje especial</span>
+                    <span id="story-subhead">El desastre de la planta nuclear</span>
                 </h2>
-                <div>
+                <div id="story-body">
                     <p>
                         Vecinos de Springfield reportaron ayer que Homero J. Simpson, empleado del Sector 7-G
                         de la Planta Nuclear, abandonó su puesto por tercera vez esta semana tras escuchar
@@ -217,17 +252,92 @@
                     <img src="https://i.ibb.co/ZzQVRtVG/796305e6-f723-4c8f-9128-1717002d4d44.png"
                         alt="Ilustración de Homero Simpson tomando cerveza">
                 </a>
-                <p>
+                <p id="story-caption">
                     Testigos aseguran haber visto a Homero correr gritando "¡Woohoo!" rumbo a Moe's Tavern
                     justo después de que sonara la alarma de fin de turno.
                 </p>
             </article>
         </section>
 
+        <button class="refresh-btn" id="refresh-btn" type="button">🍩 Otra noticia</button>
+
         <footer>
             Diseño y maquetación por KevinV7 — práctica de HTML &amp; CSS (flexbox, tipografía, diseño responsive)
         </footer>
     </div>
+
+    <script>
+        const stories = [
+            {
+                name: 'Homero Simpson',
+                sub: 'Se Vuelve Loco Por Una Cerveza',
+                kicker: 'Reportaje especial',
+                subhead: 'El desastre de la planta nuclear',
+                body: [
+                    'Vecinos de Springfield reportaron ayer que Homero J. Simpson, empleado del Sector 7-G de la Planta Nuclear, abandonó su puesto por tercera vez esta semana tras escuchar el silbato de la camioneta de Duff Beer.',
+                    '"Solo fueron cinco minutos... o tal vez cuatro horas", declaró Homero entre bocado y bocado de una dona rosada. El señor Burns exigió una investigación inmediata, mientras Marge Simpson pidió calma en el hogar familiar de la calle Evergreen Terrace 742.'
+                ],
+                caption: 'Testigos aseguran haber visto a Homero correr gritando "¡Woohoo!" rumbo a Moe\'s Tavern justo después de que sonara la alarma de fin de turno.'
+            },
+            {
+                name: 'Bart Simpson',
+                sub: 'Bate Récord De Castigos En El Pizarrón',
+                kicker: 'Educación',
+                subhead: 'La directora Skinner pierde la paciencia',
+                body: [
+                    'La Escuela Primaria de Springfield confirmó que Bart Simpson escribió "No pondré chinches en la silla del maestro" un total de 500 veces en el pizarrón, un nuevo récord escolar.',
+                    'El director Skinner declaró: "Esta vez se lo ganó de verdad". Nelson Muntz fue visto riéndose desde el fondo del salón, como de costumbre.'
+                ],
+                caption: 'Se espera que Bart repita la hazaña la próxima semana, según fuentes cercanas a la Sra. Krabappel.'
+            },
+            {
+                name: 'Ned Flanders',
+                sub: 'Dona Su Cortadora De Césped... Otra Vez',
+                kicker: 'Comunidad',
+                subhead: 'El vecino más generoso de Evergreen Terrace',
+                body: [
+                    'Por quinta vez este año, Ned Flanders prestó su cortadora de césped a Homero Simpson, quien prometió devolverla "diddly-doblada como nueva".',
+                    'Flanders solo pidió a cambio que Homero asista una vez a la iglesia el domingo. Homero respondió con un gruñido característico.'
+                ],
+                caption: 'La cortadora fue vista por última vez en el patio de los Simpson, cubierta de pasto sin cortar.'
+            }
+        ];
+
+        let currentStory = 0;
+
+        const headline = document.getElementById('headline');
+        const content = document.getElementById('content');
+        const refreshBtn = document.getElementById('refresh-btn');
+
+        function renderStory(story) {
+            document.getElementById('headline-name').textContent = story.name;
+            document.getElementById('headline-sub').textContent = story.sub;
+            document.getElementById('story-kicker').textContent = story.kicker;
+            document.getElementById('story-subhead').textContent = story.subhead;
+            document.getElementById('story-caption').textContent = story.caption;
+
+            const storyBody = document.getElementById('story-body');
+            storyBody.innerHTML = '';
+            story.body.forEach(paragraph => {
+                const p = document.createElement('p');
+                p.textContent = paragraph;
+                storyBody.appendChild(p);
+            });
+        }
+
+        refreshBtn.addEventListener('click', () => {
+            currentStory = (currentStory + 1) % stories.length;
+
+            headline.classList.add('is-swapping');
+            content.classList.add('is-swapping');
+
+            setTimeout(() => {
+                renderStory(stories[currentStory]);
+                headline.classList.remove('is-swapping');
+                content.classList.remove('is-swapping');
+            }, 250);
+        });
+    </script>
 
 </body>
 
