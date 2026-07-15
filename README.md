@@ -1,19 +1,24 @@
-# Periódico Simpson (CSS)
+# Springfield Shopper — Periódico interactivo estilo Los Simpson
 
-Réplica de un periódico estilo "Springfield Shopper" (universo de Los Simpson), construida solo con **HTML y CSS** como práctica de maquetación.
+Réplica interactiva de un periódico ficticio inspirado en Los Simpson. Empezó como ejercicio de CSS puro y evolucionó a una pieza interactiva: layout responsive, animaciones y un generador de noticias dinámico con JavaScript.
 
-[Ver demo](PeriodicoSimpson.html)
+[Ver demo](index.html)
 
-## Qué practiqué
+## Qué demuestra
 
-- **Flexbox** para el layout general y la distribución en columnas (texto / imagen)
-- **Diseño responsive** con `flex-wrap`, unidades relativas y `clamp()` para tipografía fluida
+- **Maquetación responsive** con Flexbox y tipografía fluida (`clamp()`) que se adapta de escritorio a móvil
+- **Animaciones CSS** (`@keyframes`) para la entrada de la página y transiciones en hover
+- **Manipulación del DOM con JavaScript vanilla** (sin frameworks): un botón que rota entre distintas noticias falsas actualizando el contenido en tiempo real
 - **Tipografía combinada** con Google Fonts (`Fondamento` para el título, `Roboto` / `Roboto Condensed` para el cuerpo) simulando la estética de un periódico
-- Detalles visuales como sombra, rotación de imagen y bordes para dar sensación de recorte de papel
+- Control de versiones con Git/GitHub a través de pull requests incrementales
+
+## Tecnologías
+
+`HTML5` `CSS3` `Flexbox` `CSS Animations` `JavaScript (DOM)` `Responsive Design`
 
 ## Cómo verlo
 
-Abre `PeriodicoSimpson.html` directamente en el navegador, no requiere instalación ni dependencias.
+Abre `index.html` directamente en el navegador, no requiere instalación ni dependencias.
 
 ## Autor
 
